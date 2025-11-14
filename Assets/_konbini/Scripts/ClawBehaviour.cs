@@ -6,19 +6,22 @@ public class ClawBehaviour : MonoBehaviour
 {
     public Transform leftClaw;
     public Transform rightClaw;
+    public Transform backClaw;
     public Transform itemHolder;
     public float rotationSpeed = 5f;
 
     public void CloseClaw()
     {
-        leftClaw.Rotate(Vector3.forward * rotationSpeed);
-        rightClaw.Rotate(Vector3.back * rotationSpeed);
+        leftClaw.Rotate(Vector3.forward* rotationSpeed, Space.Self);
+        rightClaw.Rotate(Vector3.forward * rotationSpeed, Space.Self);
+        backClaw.Rotate(Vector3.forward * rotationSpeed, Space.Self);
     }
 
     public void OpenClaw()
     {
-        leftClaw.Rotate(Vector3.forward * -rotationSpeed);
-        rightClaw.Rotate(Vector3.back * -rotationSpeed);
+        leftClaw.Rotate(Vector3.forward * -rotationSpeed, Space.Self);
+        rightClaw.Rotate(Vector3.forward * -rotationSpeed, Space.Self);
+        backClaw.Rotate(Vector3.forward * -rotationSpeed, Space.Self);
     }
 
     // Update is called once per frame
